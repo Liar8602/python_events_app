@@ -1,0 +1,14 @@
+.event-content img {
+    max-width: 90%;
+}
+
+body {
+    background-color: #fff;
+    font-family: Graphik,Helvetica,Arial,sans-serif;
+}
+
+.event-card {
+    font-size: 30px;
+    line-height: 70px;
+    font-weight: 700;
+}

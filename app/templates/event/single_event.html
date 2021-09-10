@@ -1,0 +1,35 @@
+{% extends "base.html "%}
+{% block content %}
+    <div class="event-content">
+    </div>
+    <h1 class="event-card">{{ event.title }}</h1>
+    <h6>Genre: {{ event.genre }}<br /></h6>
+    <div class="row">
+        <div class="col-6">
+            <p>{{ event.text }}</p>
+            {% if event.place != None %}
+                <h6>Location of the event: {{ event.place }}<br \></h6>
+            {% endif %}
+            {% if event.address != None %}
+                <h6>Address: {{ event.address }}</h6>
+            {% endif %}
+        </div>
+        <div class="col-6">
+            <img class="card-img-top" src="{{ event.img_url }}" alt="Responsice image">
+        </div>
+        {% if event.comments %}
+        <h3>Comment:</h3>
+        {% for comment in event.comments %}
+        <div class="card">
+            <div class="card-body">
+                <p class="card-text">{{ comment.text }}</p>
+                <p class="card-text">
+                    <small>Published: {{ comment.created.strftime('%d.%m.%Y) }} |
+                            Author: {{ comment.user.username }}</small>
+                </p>
+            </div>
+            {% endfor %}
+        {% endif %}
+        </div>
+    </div>
+{% endblock %}
